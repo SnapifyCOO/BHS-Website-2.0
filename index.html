@@ -118,6 +118,206 @@
             position: relative;
             overflow: visible;
         }
+
+        @media (max-width: 768px) {
+            [data-lucide] {
+                width: 80px !important;
+                height: 80px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            [data-lucide] {
+                width: 60px !important;
+                height: 60px !important;
+            }
+        }
+
+        .comparison-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+            border: 1px solid black;
+            overflow-x: auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            border: 2px solid black;
+        }
+
+        .comparison-table th, 
+        .comparison-table td {
+            padding: 16px;
+            text-align: left;
+            border: 1px solid black;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .comparison-table th {
+            background-color: #006400;
+            color: white;
+            font-weight: 500;
+            border: 1px solid black;
+        }
+
+        .comparison-header {
+            font-size: 42px;
+            color: #006400;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .comparison-tagline {
+            font-size: 18px;
+            color: #000000;
+            margin-bottom: 25px;
+            line-height: 1.5;
+            border-left: 4px solid #006400;
+            padding-left: 15px;
+            margin-top: 15px;
+        }
+
+        .check {
+            color: #008000;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .x {
+            color: #e74c3c;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 500;
+            color: #000000;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .comparison-header {
+                font-size: 28px;
+            }
+            
+            .comparison-tagline {
+                font-size: 16px;
+            }
+            
+            .comparison-table th, 
+            .comparison-table td {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .comparison-header {
+                font-size: 24px;
+            }
+            
+            .comparison-tagline {
+                font-size: 14px;
+            }
+            
+            .comparison-table th, 
+            .comparison-table td {
+                padding: 8px;
+                font-size: 12px;
+            }
+            
+            .check, .x {
+                font-size: 16px;
+            }
+        }
+
+        section .steps-wrapper {
+            display: block;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        section .step-block {
+            text-align: center;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+
+        section .step-icon {
+            width: clamp(60px, 8vw, 120px);
+            height: clamp(60px, 8vw, 120px);
+            margin: 0 auto 1rem;
+            color: black;
+        }
+
+        @media (min-width: 768px) {
+            section .steps-wrapper {
+                display: flex;
+                justify-content: space-between;
+                gap: 2vw;
+            }
+
+            section .step-block {
+                flex: 1;
+                margin-bottom: 0;
+                padding: 2vw;
+            }
+        }
+
+        /* Process Cards Styles */
+        .process-card {
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .process-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon-wrapper {
+            background-color: #f8f9fa;
+            border-radius: 50%;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .process-card:hover .icon-wrapper {
+            background-color: #e8f4ff;
+        }
+
+        @media (max-width: 768px) {
+            .process-card {
+                margin-bottom: 2rem;
+            }
+            
+            [data-lucide] {
+                width: 60px !important;
+                height: 60px !important;
+            }
+        }
     </style>
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -157,7 +357,11 @@
             <h1 class="text-white text-5xl md:text-7xl font-bold mb-4">Build Your Vision</h1>
             <h2 class="text-white text-xl mb-8">Understand the numbers that help build your business</p>
             <h3 class="text-white text-3xl md:text-5xl font-bold mb-2">Call Us Today: 434-623-8824</h3>
-            <h3 class="text-white text-3xl md:text-5xl font-bold">Send Us An Email: Thebusinesshandyman4u@thebusinesshandyman4u.com</h3>
+            <h3 class="text-white text-3xl md:text-5xl font-bold" style="word-break: break-word;">
+                Send Us An Email: <p style="word-break: break-all; font-size: clamp(12px, 2vw, 16px);">
+                    TheBusinessHandyman4u@thebusinesshandyman4u.com
+                </p>
+            </h3>
         </div>
     </div>
 
@@ -165,45 +369,52 @@
         <div class="container mx-auto px-4">
             <h2 class="text-5xl font-bold text-center mb-20">Our Process</h2>
             
-            <div class="flex flex-nowrap justify-center gap-8 relative mb-20">
-                <!-- Step 1 -->
-                <div class="process-step text-center" style="width: 400px;">
-                    <i data-lucide="phone" 
-                       class="text-black mx-auto mb-4"
-                       style="width: 120px; height: 120px;" 
-                       stroke-width="3"></i>
-                    <div>
-                        <h3 class="text-2xl font-bold">STEP 1: Call Us Today</h3>
-                        <p class="mt-2 text-black font-bold">
+            <!-- Process Steps Container -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Step 1 Card -->
+                <div class="process-card bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
+                    <div class="icon-wrapper mb-6">
+                        <i data-lucide="phone" 
+                           class="text-black mx-auto"
+                           style="width: 80px; height: 80px;" 
+                           stroke-width="2"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="text-2xl font-bold mb-4">STEP 1: Call Us Today</h3>
+                        <p class="text-gray-700 mb-4">
                             Call us or submit a contact request and we'll reach out to you to learn more about your bookkeeping needs.
-                        
-                        </p> <span class="text-black font-bold">434 623 8824</span>
+                        </p>
+                        <span class="text-blue-600 font-bold block">434 623 8824</span>
                     </div>
                 </div>
 
-                <!-- Step 2 -->
-                <div class="process-step text-center" style="width: 400px;">
-                    <i data-lucide="search" 
-                       class="text-black mx-auto mb-4"
-                       style="width: 120px; height: 120px;" 
-                       stroke-width="3"></i>
-                    <div>
-                        <h3 class="text-2xl font-bold">STEP 2: Assess & Estimate</h3>
-                        <p class="mt-2 text-black font-bold">
+                <!-- Step 2 Card -->
+                <div class="process-card bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
+                    <div class="icon-wrapper mb-6">
+                        <i data-lucide="search" 
+                           class="text-black mx-auto"
+                           style="width: 80px; height: 80px;" 
+                           stroke-width="2"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="text-2xl font-bold mb-4">STEP 2: Assess & Estimate</h3>
+                        <p class="text-gray-700">
                             We'll review all current accounts in depth to determine a timeline and an upfront one-time or monthly estimate.
                         </p>
                     </div>
                 </div>
 
-                <!-- Step 3 -->
-                <div class="process-step text-center" style="width: 400px;">
-                    <i data-lucide="handshake" 
-                       class="text-black mx-auto mb-4"
-                       style="width: 120px; height: 120px;" 
-                       stroke-width="3"></i>
-                    <div>
-                        <h3 class="text-2xl font-bold">STEP 3: We Work Together</h3>
-                        <p class="mt-2 text-black font-bold">
+                <!-- Step 3 Card -->
+                <div class="process-card bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
+                    <div class="icon-wrapper mb-6">
+                        <i data-lucide="handshake" 
+                           class="text-black mx-auto"
+                           style="width: 80px; height: 80px;" 
+                           stroke-width="2"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="text-2xl font-bold mb-4">STEP 3: We Work Together</h3>
+                        <p class="text-gray-700">
                             You no longer stress about being prepared for tax season and you know exactly where your money is going.
                         </p>
                     </div>
@@ -285,71 +496,6 @@
 
     <!-- After Services Section -->
     <section class="bg-white py-16">
-        <style>
-            .comparison-container {
-                max-width: 1000px;
-                margin: 0 auto;
-                background: white;
-                padding: 30px;
-                border-radius: 12px;
-                box-shadow: 0 2px 12px rgba(0,0,0,0.3);
-                border: 1px solid black;
-            }
-            .comparison-table {
-                width: 100%;
-                border-collapse: collapse;
-                margin-top: 25px;
-                border: 2px solid black;
-            }
-            .comparison-table th, 
-            .comparison-table td {
-                padding: 16px;
-                text-align: left;
-                border: 1px solid black;
-            }
-            .comparison-table th {
-                background-color: #006400;
-                color: white;
-                font-weight: 500;
-                border: 1px solid black;
-            }
-            .comparison-table tr:hover {
-                background-color: #f8f9fa;
-            }
-            .comparison-header {
-                font-size: 42px;
-                color: #006400;
-                margin-bottom: 15px;
-                font-weight: 600;
-            }
-            .comparison-tagline {
-                font-size: 18px;
-                color: #000000;
-                margin-bottom: 25px;
-                line-height: 1.5;
-                border-left: 4px solid #006400;
-                padding-left: 15px;
-                margin-top: 15px;
-            }
-            .check {
-                color: #008000;
-                font-size: 20px;
-                font-weight: bold;
-            }
-            .x {
-                color: #e74c3c;
-                font-size: 20px;
-                font-weight: bold;
-            }
-            .comparison-table td:first-child {
-                font-weight: 500;
-                color: #000000;
-            }
-            .comparison-table tr:nth-child(even) {
-                background-color: #f9fafb;
-            }
-        </style>
-
         <div class="comparison-container">
             <div class="comparison-header">Bookkeeper Service Comparison</div>
             <div class="comparison-tagline">A good bookkeeper doesn't just track your money—they help transform your profits into powerful investments that fuel your business growth.</div>
@@ -525,7 +671,7 @@
             <h1 class="contact-title">Contact us.</h1>
             
             <div class="contact-info">
-                <p>TheBusinessHandyman4u@thebusinesshandyman4u.com</p>
+                <p style="word-break: break-all; font-size: clamp(12px, 2vw, 16px);">TheBusinessHandyman4u@thebusinesshandyman4u.com</p>
                 <p>434-623-8824</p>
                 <p>706 Second Avenue</p>
                 <p>Lawrenceville, VA 23868</p>
